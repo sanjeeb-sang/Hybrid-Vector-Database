@@ -1,0 +1,47 @@
+/*
+The queries below are some of the queries that can be run using the Console app as shown
+in the Project Report.
+*/
+
+
+/* Query Number 1 */
+
+SELECT id, firstname, lastname, email, hr.SIMILARITY(vec, ARRAY[1.1, 2.2]), hr.SUM_ELEMENTS(vec) as SumElements from hr.employees where age > 30 and hr.SIMILARITY(vec, ARRAY[1.1, 2.2]) > 10 
+
+
+/* Query Number 2 */
+
+SELECT id, firstname, lastname, email, hr.COSINE_SIMILARITY(vec, ARRAY[1.1, 2.2]) from hr.employees where age > 30 and hr.SIMILARITY(vec, ARRAY[1.1, 2.2]) > 10
+
+
+/* Query Number 3 */
+
+SELECT id, firstname, lastname, email, hr.COSINE_SIMILARITY(vec, ARRAY[1.1, 2.2]) as CosineSimilarity, hr.SIMILARITY(vec, ARRAY[1.1, 2.2]) as Similarity from hr.employees where age > 30 and hr.SIMILARITY(vec, ARRAY[1.1, 2.2]) > 10 and hr.COSINE_SIMILARITY(vec, ARRAY[1.1, 2.2]) > 0.8
+
+
+/* Query Number 4 */
+
+SELECT id, firstname, lastname, email, hr.COSINE_SIMILARITY(vec, ARRAY[1.1, 2.2]) as CosineSimilarity, hr.SIMILARITY(vec, ARRAY[1.1, 2.2]) as Similarity from hr.employees where age > 30 and hr.SIMILARITY(vec, ARRAY[1.1, 2.2]) > 50 and hr.COSINE_SIMILARITY(vec, ARRAY[1.1, 2.2]) > 0.65 ORDER BY CosineSimilarity
+
+
+/* Query Number 5 */
+
+SELECT id, firstname, lastname, email, hr.COSINE_SIMILARITY(vec, ARRAY[1.1, 2.2]) as CosineSimilarity, hr.SIMILARITY(vec, ARRAY[1.1, 2.2]) as Similarity from hr.employees where age > 30 and hr.SIMILARITY(vec, ARRAY[1.1, 2.2]) > 50 and hr.COSINE_SIMILARITY(vec, ARRAY[1.1, 2.2]) > 0.555 ORDER BY CosineSimilarity DESC
+
+
+/* Query Number 6 */
+
+SELECT id, firstname, lastname, email, hr.COSINE_SIMILARITY(vec, ARRAY[1.120218312, 2.288214, 3.3414]) as CosineSimilarity from hr.employees where age > 30 and hr.SIMILARITY(vec, ARRAY[1.120218312, 2.288214, 3.3414]) > 10 ORDER BY CosineSimilarity
+
+
+/* Query Number 7 */
+
+SELECT id, firstname, lastname, email, hr.COSINE_SIMILARITY(vec, ARRAY[2.12314354535, 123.4536443534, 3.5658756734569, 7.8765498764736]) as CosineSimilarity, hr.SIMILARITY(vec, ARRAY[2.12314354535, 123.4536443534, 3.5658756734569, 7.8765498764736]) as Similarity from hr.employees where age > 30 and hr.SIMILARITY(vec, ARRAY[2.12314354535, 123.4536443534, 3.5658756734569, 7.8765498764736]) > 50 and hr.COSINE_SIMILARITY(vec, ARRAY[2.12314354535, 123.4536443534, 3.5658756734569, 7.8765498764736]) > 0.555 ORDER BY CosineSimilarity DESC
+
+
+/* Query Number 8 */
+
+SELECT id, firstname, lastname, email, hr.COSINE_SIMILARITY(vec, ARRAY[1.876534, 2.36543, 4.476543, 758.4826634, 87.36542, 987.2653472987, 6.127655371]) as CosineSimilarity, hr.SIMILARITY(vec, ARRAY[1.876534, 2.36543, 4.476543, 758.4826634, 87.36542, 987.2653472987, 6.127655371]) as Similarity from hr.employees where age > 30 and hr.SIMILARITY(vec, ARRAY[1.876534, 2.36543, 4.476543, 758.4826634, 87.36542, 987.2653472987, 6.127655371]) > 50 and hr.COSINE_SIMILARITY(vec, ARRAY[1.876534, 2.36543, 4.476543, 758.4826634, 87.36542, 987.2653472987, 6.127655371]) > 0.40 ORDER BY CosineSimilarity
+
+
+
