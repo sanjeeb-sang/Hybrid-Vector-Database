@@ -69,7 +69,7 @@ Once the extension is installed, you can start using the vector functions in you
     ```
 
 ### Contributing
-MIT
+GPL3.0
 Contributions are welcome! Please open an issue or submit a pull request on GitHub.
 
 1. **Fork the Repository**
